@@ -44,7 +44,7 @@ import uniol.apt.io.renderer.PNRenderer;
 import uniol.apt.io.renderer.RenderException;
 import uniol.apt.io.renderer.impl.APTRenderer;
 import uniol.apt.io.renderer.impl.BagginsRenderer;
-import uniol.apt.io.renderer.impl.DotRenderer;
+import uniol.apt.io.renderer.impl.DotPNRenderer;
 import uniol.apt.io.renderer.impl.LoLARenderer;
 import uniol.apt.io.renderer.impl.PetrifyRenderer;
 import uniol.apt.io.renderer.impl.SynetRenderer;
@@ -81,7 +81,7 @@ public class PNConvert {
 		Map<String, PNRenderer> rendererMap = new HashMap<>();
 		rendererMap.put("apt", new APTRenderer());
 		rendererMap.put("baggins", new BagginsRenderer());
-		rendererMap.put("dot", new DotRenderer());
+		rendererMap.put("dot", new DotPNRenderer());
 		rendererMap.put("lola", new LoLARenderer());
 		rendererMap.put("petrify", new PetrifyRenderer());
 		rendererMap.put("synet", new SynetRenderer());
