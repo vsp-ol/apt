@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <project name="apt" default="javac.tests" basedir=".">
 	<path id="project.class.path">
+		<pathelement location="lib/commons-cli-1.3.1/commons-cli-1.3.1.jar" />
 		<pathelement location="lib/commons-io-2.4/commons-io-2.4.jar" />
 		<pathelement location="lib/commons-collections4-4.0/commons-collections4-4.0.jar" />
 		<pathelement location="lib/antlr-4.5.1/antlr-4.5.1-complete.jar" />
@@ -389,6 +390,7 @@
 		description="Build a jar file containing all the needed stuff to run the apt tool.">
 		<jar destfile="apt.jar">
 			<fileset dir="classes/" />
+			<zipfileset includes="**/*.class" src="lib/commons-cli-1.3.1/commons-cli-1.3.1.jar" />
 			<zipfileset includes="**/*.class" src="lib/commons-io-2.4/commons-io-2.4.jar" />
 			<zipfileset includes="**/*.class" src="lib/commons-collections4-4.0/commons-collections4-4.0.jar" />
 			<zipfileset includes="**/*.class" src="lib/antlr-4.5.1/antlr-4.5.1-complete.jar" />
