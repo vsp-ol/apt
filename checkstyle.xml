@@ -159,7 +159,7 @@
 		<!-- <module name="ArrayTypeStyle"/> -->
 		<!-- <module name="FinalParameters"/> -->
 		<module name="UncommentedMain">
-			<property name="excludedClasses" value="^uniol\.apt\.APT$"/>
+			<property name="excludedClasses" value="^uniol\.apt\.(APT|PNConvert)$"/>
 		</module>
 		<module name="TodoComment">
 			<property name="severity" value="info"/>
