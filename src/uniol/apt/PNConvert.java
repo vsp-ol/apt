@@ -38,7 +38,7 @@ import org.apache.commons.io.IOUtils;
 import uniol.apt.adt.pn.PetriNet;
 import uniol.apt.io.parser.PNParser;
 import uniol.apt.io.parser.ParseException;
-import uniol.apt.io.parser.impl.APTPNParser;
+import uniol.apt.io.parser.impl.AptPNParser;
 import uniol.apt.io.parser.impl.LoLAPNParser;
 import uniol.apt.io.parser.impl.SynetPNParser;
 import uniol.apt.io.renderer.PNRenderer;
@@ -72,7 +72,7 @@ public class PNConvert {
 	// initialise map of parsers
 	static {
 		Map<String, PNParser> parserMap = new HashMap<>();
-		parserMap.put("apt", new APTPNParser());
+		parserMap.put("apt", new AptPNParser());
 		parserMap.put("lola", new LoLAPNParser());
 		parserMap.put("synet", new SynetPNParser());
 		PARSERS = Collections.unmodifiableMap(parserMap);
