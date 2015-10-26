@@ -28,18 +28,19 @@ import uniol.apt.adt.pn.Place;
 import uniol.apt.adt.pn.Transition;
 import uniol.apt.adt.ts.Arc;
 import uniol.apt.adt.ts.TransitionSystem;
+import uniol.apt.io.renderer.PNRenderer;
 import uniol.apt.io.renderer.PNTSRenderer;
-import uniol.apt.module.exception.ModuleException;
+import uniol.apt.io.renderer.RenderException;
 
 /**
  * Creates a string which returns a petri net or transitionsystem in the Petrify-format.
  * @author Sören Dierkes
  *
  */
-public class PetrifyRenderer implements PNTSRenderer {
+public class PetrifyRenderer implements PNRenderer, PNTSRenderer {
 
 	@Override
-	public String render(PetriNet pn) throws ModuleException {
+	public String render(PetriNet pn) throws RenderException {
 		StringBuilder sb = new StringBuilder();
 
 		// Petrify does not like:
@@ -72,7 +73,7 @@ public class PetrifyRenderer implements PNTSRenderer {
 		for (Place p : places) {
 			mark = pn.getInitialMarking().getToken(p).getValue();
 			if (mark > 1) {
-				throw new ModuleException("Too many marks, Petrify is only able to read one bounded net");
+				throw new RenderException("Too many marks, Petrify is only able to read one bounded net");
 			}
 
 			Set<Transition> preSet = p.getPreset();

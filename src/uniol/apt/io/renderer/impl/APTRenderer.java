@@ -36,21 +36,22 @@ import uniol.apt.adt.pn.Token;
 import uniol.apt.adt.ts.Arc;
 import uniol.apt.adt.ts.State;
 import uniol.apt.adt.ts.TransitionSystem;
-import uniol.apt.module.exception.ModuleException;
+import uniol.apt.io.renderer.PNRenderer;
+import uniol.apt.io.renderer.RenderException;
 
 /**
  * @author Vincent Göbel, vsp
  *
  */
-public class APTRenderer {
+public class APTRenderer implements PNRenderer {
 
 	/**
 	 * Verify that the net can be expressed in APT file format.
 	 * @param pn the net to verify
 	 */
-	private static void verifyNet(PetriNet pn) throws ModuleException {
+	private static void verifyNet(PetriNet pn) throws RenderException {
 		if (pn.getInitialMarking().hasOmega()) {
-			throw new ModuleException("Cannot express an initial marking with at least one OMEGA"
+			throw new RenderException("Cannot express an initial marking with at least one OMEGA"
 					+ "token in the APT file format");
 		}
 	}
@@ -62,7 +63,7 @@ public class APTRenderer {
 	 * @throws ModuleException when the Petri net cannot be expressed in the LoLA file format, for example when
 	 * invalid identifiers are used or when the net has no places or no transitions.
 	 */
-	public String render(PetriNet pn) throws ModuleException {
+	public String render(PetriNet pn) throws RenderException {
 		StringWriter writer = new StringWriter();
 		try {
 			render(writer, pn);
@@ -80,7 +81,7 @@ public class APTRenderer {
 	 * @throws ModuleException when the Petri net cannot be expressed in the APT file format.
 	 * @throws IOException when writing to the output produces an exception.
 	 */
-	public void render(Writer output, PetriNet pn) throws ModuleException, IOException {
+	public void render(Writer output, PetriNet pn) throws RenderException, IOException {
 		verifyNet(pn);
 
 		STGroup group = new STGroupFile("uniol/apt/io/renderer/impl/APTPN.stg");

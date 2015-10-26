@@ -29,6 +29,7 @@ import uniol.apt.adt.pn.Transition;
 import uniol.apt.adt.ts.Arc;
 import uniol.apt.adt.ts.State;
 import uniol.apt.adt.ts.TransitionSystem;
+import uniol.apt.io.renderer.PNRenderer;
 
 /**
  * This class converts Petri nets and transition systems to dot file strings.
@@ -37,7 +38,7 @@ import uniol.apt.adt.ts.TransitionSystem;
  * @author Renke Grunwald
  *
  */
-public class DotRenderer {
+public class DotRenderer implements PNRenderer {
 
 	private static String PN_PLACE_TEMPLATE =
 		"%1$s[label=\"%2$s\"]\n%1$s_label[shape=plaintext,label=\"\"]\n%1$s -> %1$s_label[penwidth=0,"

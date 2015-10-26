@@ -32,6 +32,7 @@ import uniol.apt.adt.pn.Transition;
 import uniol.apt.adt.ts.Arc;
 import uniol.apt.adt.ts.State;
 import uniol.apt.adt.ts.TransitionSystem;
+import uniol.apt.io.renderer.PNRenderer;
 import uniol.apt.io.renderer.PNTSRenderer;
 import uniol.apt.util.StringComparator;
 
@@ -39,7 +40,7 @@ import uniol.apt.util.StringComparator;
  * @author Vincent Göbel, Thomas Strathmann
  *
  */
-public class SynetRenderer implements PNTSRenderer {
+public class SynetRenderer implements PNRenderer, PNTSRenderer {
 
 	@Override
 	public String render(PetriNet pn) {
